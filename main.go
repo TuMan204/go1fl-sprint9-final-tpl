@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	SIZE   = 10000087
+	SIZE   = 100_000_000
 	CHUNKS = 8
 )
 
@@ -95,15 +95,15 @@ func main() {
 	start := time.Now().UTC()
 	max := maximum(randomSlice)
 	stop := time.Now().UTC()
-	elapsed := stop.Sub(start).Milliseconds()
+	elapsed := stop.Sub(start).Microseconds()
 
-	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d ms\n", max, elapsed)
+	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d mks\n", max, elapsed)
 
 	fmt.Printf("Ищем максимальное значение в %d потоков\n", CHUNKS)
 	start = time.Now().UTC()
 	max = maxChunks(randomSlice)
 	stop = time.Now().UTC()
-	elapsed = stop.Sub(start).Milliseconds()
+	elapsed = stop.Sub(start).Microseconds()
 
-	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d ms\n", max, elapsed)
+	fmt.Printf("Максимальное значение элемента: %d\nВремя поиска: %d mks\n", max, elapsed)
 }
